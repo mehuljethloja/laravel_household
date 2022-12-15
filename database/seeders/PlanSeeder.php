@@ -21,22 +21,22 @@ class PlanSeeder extends Seeder
             [
                 "insurance_type_id" => 1,
                 "plan_name_en" => 'Combined-Coverage',
-                "plan_name_sw" => 'Combined-Coverage',
+                "plan_name_sw" => 'Combined-Coverage Sw',
             ],
             [
                 "insurance_type_id" => 1,
                 "plan_name_en" => 'Building Only',
-                "plan_name_sw" => 'Building Only',
+                "plan_name_sw" => 'Building Only Sw',
             ],
             [
                 "insurance_type_id" => 1,
                 "plan_name_en" => 'Content Only',
-                "plan_name_sw" => 'Content Only',
+                "plan_name_sw" => 'Content Only Sw',
             ],
             [
                 "insurance_type_id" => 2,
                 "plan_name_en" => 'Premium Coverage',
-                "plan_name_sw" => 'Premium Coverage',
+                "plan_name_sw" => 'Premium Coverage Sw',
             ],
         ]);
     }

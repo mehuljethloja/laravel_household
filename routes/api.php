@@ -28,7 +28,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('site/index',[SiteController::class,'index']);
 
-    Route::get('getCities',[AppController::class,'GetCities']);
+    Route::get('getCities',[AppController::class,'getCities']);
+    Route::get('getPlans',[AppController::class,'getPlans']);
+    Route::get('getInsuranceType',[AppController::class,'getInsuranceType']);
 
     Route::post('getQuotes',[QuoteController::class,'index']);
     Route::post('saveQuote',[QuoteController::class,'save']);

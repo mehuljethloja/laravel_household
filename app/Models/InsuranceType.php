@@ -22,4 +22,6 @@ class InsuranceType extends Model
         'deleted_at',
         'deleted_by'
     ];
+
+    protected $hidden   = [ 'insurance_type_name_en', 'insurance_type_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
 }

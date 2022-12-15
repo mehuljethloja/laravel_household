@@ -19,11 +19,11 @@ class InsuranceTypeSeeder extends Seeder
         DB::table("insurance_type")->insert([
             [
                 "insurance_type_name_en" => 'Household Basic',
-                "insurance_type_name_sw" => 'Household Basic',
+                "insurance_type_name_sw" => 'Household Basic Sw',
             ],
             [
                 "insurance_type_name_en" => 'Household Premium',
-                "insurance_type_name_sw" => 'Household Premium',
+                "insurance_type_name_sw" => 'Household Premium Sw',
             ],
         ]);
     }

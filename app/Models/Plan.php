@@ -23,6 +23,7 @@ class Plan extends Model
         'deleted_at',
         'deleted_by'
     ];
+    protected $hidden   = [ 'plan_name_en', 'plan_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
 
     public function insuranceType(){
         return $this->hasOne('App\Models\InsuranceType','insurance_type_id','insurance_type_id');
