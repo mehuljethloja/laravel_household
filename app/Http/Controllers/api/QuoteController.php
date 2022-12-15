@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Exception;
+use Illuminate\Support\Facades\App;
 
 class QuoteController extends BaseController
 {
+    
     /**
      * Undocumented function
      *
@@ -17,6 +19,7 @@ class QuoteController extends BaseController
     public function index()
     {
         try{
+            $locale = app()->getLocale();
             $response = [];
             return $this->sendResponse($response,'', Response::HTTP_OK);    
             

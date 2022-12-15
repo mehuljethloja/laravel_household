@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::group(['middleware' => ['jwt.verify']], function() {
+Route::group(['middleware' => [\App\Http\Middleware\Localization::class,'jwt.verify',]], function() {
     Route::get('site/index',[SiteController::class,'index']);
 
     Route::get('getCities',[AppController::class,'getCities']);

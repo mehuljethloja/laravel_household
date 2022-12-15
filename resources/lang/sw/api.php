@@ -12,8 +12,7 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-    "HTTP_METHOD_NOT_ALLOWED" => "Method Not Allowed",
-    "TOKEN_NOT_FOUND" => "Authorization Token not found.",
+    "TOKEN_NOT_FOUND" => "Authorization Token not found.swww",
     "TOKEN_INVALID" => "Token is Invalid.",
     "TOKEN_IS_EXPIRED" => "Token is Expired.",
 ];
