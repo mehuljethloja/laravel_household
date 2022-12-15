@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\API\CityRequest;
 use App\Http\Requests\API\InsuranceTypeRequest;
 use App\Http\Requests\API\PlanRequest;
+use App\Http\Requests\API\TermsConditionRequest;
 use App\Models\City;
 use App\Models\InsuranceType;
 use App\Models\Plan;
+use App\Models\TermAndCondition;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Exception;
@@ -31,11 +33,28 @@ class AppController extends BaseController
         }
     }
 
+    public function getInsuranceType(InsuranceTypeRequest $request)
+    {
+        try{
+
+            $insuranceTypes = InsuranceType::get(['*', 'insurance_type_name_'.$request->language.' AS insurance_type_name']);
+            $response = [
+                'insuranceTypes ' => $insuranceTypes
+            ];
+
+            return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);
+
+        }catch (Exception $e) {
+            return $this->sendError($e->getMessage(),__('string.oops_something_went_wrong'), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public function getPlans(PlanRequest $request)
     {
         try{
 
-            $plans = Plan::get(['*', 'plan_name_'.$request->language.' AS plan_name']);
+            $plans = Plan::where('insurance_type_id', $request->insurance_type_id)
+                            ->get(['*', 'plan_name_'.$request->language.' AS plan_name']);
             $response = [
                 'plans' => $plans
             ];
@@ -47,13 +66,16 @@ class AppController extends BaseController
         }
     }
 
-    public function getInsuranceType(InsuranceTypeRequest $request)
+    public function getTermsConditions(TermsConditionRequest $request)
     {
         try{
 
-            $insuranceTypes = InsuranceType::get(['*', 'insurance_type_name_'.$request->language.' AS insurance_type_name']);
+            $termAndConditions = TermAndCondition::where('insurance_type_id', $request->insurance_type_id)
+                ->where('plan_id', $request->plan_id)
+                ->where('product_id', $request->product_id)
+                ->get(['*', 'term_name_'.$request->language.' AS term_name']);
             $response = [
-                'insuranceTypes ' => $insuranceTypes
+                'termAndConditions' => $termAndConditions
             ];
 
             return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);

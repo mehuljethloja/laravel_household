@@ -20,6 +20,8 @@ class MasterSeeder extends Seeder
             CitySeeder::class,
             InsuranceTypeSeeder::class,
             PlanSeeder::class,
+            ProductSeeder::class,
+            TermConditionSeeder::class,
         ]);
     }
 }

@@ -31,6 +31,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('getCities',[AppController::class,'getCities']);
     Route::get('getPlans',[AppController::class,'getPlans']);
     Route::get('getInsuranceType',[AppController::class,'getInsuranceType']);
+    Route::get('getTermsConditions',[AppController::class,'getTermsConditions']);
 
     Route::post('getQuotes',[QuoteController::class,'index']);
     Route::post('saveQuote',[QuoteController::class,'save']);
