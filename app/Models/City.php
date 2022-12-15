@@ -11,8 +11,8 @@ class City extends Model
     protected $primaryKey = 'city_id';
     protected $table = 'city';
     public $timestamps = false;
-    protected $fillable=[
-        'city_id','city_name_en','city_name_sw','created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'
-    ];
+
+    protected $fillable = [ 'city_id','city_name_en','city_name_sw','created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
+    protected $hidden   = [ 'city_name_en','city_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
 
 }

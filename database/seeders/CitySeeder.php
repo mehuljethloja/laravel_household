@@ -20,23 +20,23 @@ class CitySeeder extends Seeder
         DB::table("city")->insert([
             [
                 "city_name_en" => 'Mumbai',
-                "city_name_sw" => 'Mumbai',
+                "city_name_sw" => 'Mumbai Sw',
             ],
             [
                 "city_name_en" => 'Delhi',
-                "city_name_sw" => 'Delhi',
+                "city_name_sw" => 'Delhi Sw',
             ],
             [
                 "city_name_en" => 'Chennai',
-                "city_name_sw" => 'Chennai',
+                "city_name_sw" => 'Chennai Sw',
             ],
             [
                 "city_name_en" => 'Ahmedabad',
-                "city_name_sw" => 'Ahmedabad',
+                "city_name_sw" => 'Ahmedabad Sw',
             ],
             [
                 "city_name_en" => 'Bengaluru',
-                "city_name_sw" => 'Bengaluru',
+                "city_name_sw" => 'Bengaluru Sw',
             ],
         ]);
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\api\PolicyController;
 use App\Http\Controllers\api\ProposalController;
 use App\Http\Controllers\api\QuoteController;
 use App\Http\Controllers\api\SiteController;
+use App\Http\Controllers\api\AppController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('site/index',[SiteController::class,'index']);
+
+    Route::get('getCities',[AppController::class,'GetCities']);
+
     Route::post('getQuotes',[QuoteController::class,'index']);
     Route::post('saveQuote',[QuoteController::class,'save']);
     Route::post('saveProposal',[ProposalController::class,'save']);
