@@ -2,13 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CityFactory extends Factory
+class PlanFactory extends Factory
 {
-
-    protected $model = City::class;
     /**
      * Define the model's default state.
      *
@@ -17,8 +14,9 @@ class CityFactory extends Factory
     public function definition()
     {
         return [
-            "city_name_en" => $this->faker->name(),
-            "city_name_sw" => $this->faker->name(),
+            "insurance_type_id" => 1,
+            "plan_name_en" => $this->faker->name(),
+            "plan_name_sw" => $this->faker->name(),
         ];
     }
 }
