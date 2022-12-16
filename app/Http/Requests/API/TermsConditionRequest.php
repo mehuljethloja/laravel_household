@@ -32,7 +32,6 @@ class TermsConditionRequest extends APIFormRequest
             }
             case 'GET':
                 return [
-                    'language'          => 'required|in:en,sw',
                     'product_id'        => 'required|exists:product',
                     'plan_id'           => 'required|exists:plan',
                     'insurance_type_id' => 'required|exists:insurance_type',

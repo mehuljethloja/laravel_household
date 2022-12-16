@@ -15,4 +15,8 @@ return [
     "TOKEN_NOT_FOUND" => "Authorization Token not found.swww",
     "TOKEN_INVALID" => "Token is Invalid.",
     "TOKEN_IS_EXPIRED" => "Token is Expired.",
+
+    'DATA_RETRIEVED_SUCCESSFULLY'   => 'Data Retrieved Successfully! SW',
+    'OOPS_SOMETHING_WENT_WRONG'     => 'Oops Something Went Wrong! SW',
+
 ];

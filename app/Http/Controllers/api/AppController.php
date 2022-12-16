@@ -17,35 +17,34 @@ use Exception;
 
 class AppController extends BaseController
 {
-    public function getCities(CityRequest $request)
+    public function getCities(Request $request)
     {
         try{
-
-            $cities = City::get(['*', 'city_name_'.$request->language.' AS city_name']);
+            $cities = City::get(['*', 'city_name_'.$this->getLocale().' AS city_name']);
             $response = [
                 'cities' => $cities
             ];
 
-            return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);
+            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
             
         }catch (Exception $e) {
-            return $this->sendError($e->getMessage(),__('string.oops_something_went_wrong'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    public function getInsuranceType(InsuranceTypeRequest $request)
+    public function getInsuranceType(Request $request)
     {
         try{
 
-            $insuranceTypes = InsuranceType::get(['*', 'insurance_type_name_'.$request->language.' AS insurance_type_name']);
+            $insuranceTypes = InsuranceType::get(['*', 'insurance_type_name_'.$this->getLocale().' AS insurance_type_name']);
             $response = [
                 'insuranceTypes ' => $insuranceTypes
             ];
 
-            return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);
+            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
 
         }catch (Exception $e) {
-            return $this->sendError($e->getMessage(),__('string.oops_something_went_wrong'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -54,15 +53,15 @@ class AppController extends BaseController
         try{
 
             $plans = Plan::where('insurance_type_id', $request->insurance_type_id)
-                            ->get(['*', 'plan_name_'.$request->language.' AS plan_name']);
+                            ->get(['*', 'plan_name_'.$this->getLocale().' AS plan_name']);
             $response = [
                 'plans' => $plans
             ];
 
-            return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);
+            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
 
         }catch (Exception $e) {
-            return $this->sendError($e->getMessage(),__('string.oops_something_went_wrong'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -73,15 +72,15 @@ class AppController extends BaseController
             $termAndConditions = TermAndCondition::where('insurance_type_id', $request->insurance_type_id)
                 ->where('plan_id', $request->plan_id)
                 ->where('product_id', $request->product_id)
-                ->get(['*', 'term_name_'.$request->language.' AS term_name']);
+                ->get(['*', 'term_name_'.$this->getLocale().' AS term_name']);
             $response = [
                 'termAndConditions' => $termAndConditions
             ];
 
-            return $this->sendResponse($response,__('string.data_retrieved_successfully'), Response::HTTP_OK);
+            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
 
         }catch (Exception $e) {
-            return $this->sendError($e->getMessage(),__('string.oops_something_went_wrong'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -19,7 +19,7 @@ class QuoteController extends BaseController
     public function index()
     {
         try{
-            $locale = app()->getLocale();
+
             $response = [];
             return $this->sendResponse($response,'', Response::HTTP_OK);    
             

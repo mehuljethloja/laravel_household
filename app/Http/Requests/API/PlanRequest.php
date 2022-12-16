@@ -32,7 +32,6 @@ class PlanRequest extends APIFormRequest
             }
             case 'GET':
                 return [
-                    'language'          => 'required|in:en,sw',
                     'insurance_type_id' => 'required|exists:insurance_type',
                 ];
             default:

@@ -16,4 +16,7 @@ return [
     "TOKEN_NOT_FOUND" => "Authorization Token not found.",
     "TOKEN_INVALID" => "Token is Invalid.",
     "TOKEN_IS_EXPIRED" => "Token is Expired.",
+
+    'DATA_RETRIEVED_SUCCESSFULLY'   => 'Data Retrieved Successfully!',
+    'OOPS_SOMETHING_WENT_WRONG'     => 'Oops Something Went Wrong!',
 ];
