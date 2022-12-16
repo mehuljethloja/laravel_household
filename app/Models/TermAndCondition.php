@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TermAndCondition extends Model
+class TermAndCondition extends BaseModel
 {
     use HasFactory;
 
     protected $table = 'term_and_condition';
+    protected $primaryKey = 'term_id';
 
     protected $fillable = [
         'term_id',

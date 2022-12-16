@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Claim extends Model
+class Claim extends BaseModel
 {
+    use SoftDeletes;
     use HasFactory;
     
     protected $table = 'claim';
+    protected $primaryKey = 'claim_id';
 
     protected $fillable = [
         'claim_id',

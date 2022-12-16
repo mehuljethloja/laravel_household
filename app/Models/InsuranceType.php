@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InsuranceType extends Model
+class InsuranceType extends BaseModel
 {
     use HasFactory;
 
     protected $table = 'insurance_type';
+    protected $primaryKey = 'insurance_type_id';
 
     protected $fillable = [
         'insurance_type_id',

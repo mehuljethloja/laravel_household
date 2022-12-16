@@ -20,7 +20,7 @@ class AppController extends BaseController
     public function getCities(Request $request)
     {
         try{
-            $cities = City::get(['*', 'city_name_'.$this->getLocale().' AS city_name']);
+            $cities = City::get();
             $response = [
                 'cities' => $cities
             ];

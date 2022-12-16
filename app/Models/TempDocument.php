@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TempDocument extends Model
+class TempDocument extends BaseModel
 {
     use HasFactory;
 
     protected $table = 'temp_document';
+    protected $primaryKey = 'temp_document_id';
 
     protected $fillable = [
         'temp_document_id',
