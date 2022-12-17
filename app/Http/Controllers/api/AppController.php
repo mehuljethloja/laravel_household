@@ -36,7 +36,7 @@ class AppController extends BaseController
     {
         try{
 
-            $insuranceTypes = InsuranceType::get(['*', 'insurance_type_name_'.$this->getLocale().' AS insurance_type_name']);
+            $insuranceTypes = InsuranceType::get();
             $response = [
                 'insuranceTypes ' => $insuranceTypes
             ];
@@ -52,8 +52,7 @@ class AppController extends BaseController
     {
         try{
 
-            $plans = Plan::where('insurance_type_id', $request->insurance_type_id)
-                            ->get(['*', 'plan_name_'.$this->getLocale().' AS plan_name']);
+            $plans = Plan::where('insurance_type_id', $request->insurance_type_id)->get();
             $response = [
                 'plans' => $plans
             ];
@@ -71,8 +70,8 @@ class AppController extends BaseController
 
             $termAndConditions = TermAndCondition::where('insurance_type_id', $request->insurance_type_id)
                 ->where('plan_id', $request->plan_id)
-                ->where('product_id', $request->product_id)
-                ->get(['*', 'term_name_'.$this->getLocale().' AS term_name']);
+                ->where('product_id', $request->product_id)->get();
+
             $response = [
                 'termAndConditions' => $termAndConditions
             ];

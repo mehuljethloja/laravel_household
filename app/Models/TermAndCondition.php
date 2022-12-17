@@ -27,6 +27,13 @@ class TermAndCondition extends BaseModel
         'deleted_by'
     ];
     protected $hidden   = [ 'term_name_en','term_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
+    protected $appends  = ['term_name'];
+
+    public function getTermNameAttribute()
+    {
+        $column = 'term_name_'.app()->getLocale();
+        return $this->$column;
+    }
 
     public function insuranceType(){
         return $this->hasOne('App\Models\InsuranceType','insurance_type_id','insurance_type_id');

@@ -25,6 +25,14 @@ class Plan extends BaseModel
         'deleted_by'
     ];
     protected $hidden   = [ 'plan_name_en', 'plan_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
+    protected $appends  = ['plan_name'];
+
+    public function getPlanNameAttribute()
+    {
+        $column = 'plan_name_'.app()->getLocale();
+        return $this->$column;
+    }
+
 
     public function insuranceType(){
         return $this->hasOne('App\Models\InsuranceType','insurance_type_id','insurance_type_id');

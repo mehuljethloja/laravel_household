@@ -25,4 +25,12 @@ class InsuranceType extends BaseModel
     ];
 
     protected $hidden   = [ 'insurance_type_name_en', 'insurance_type_name_sw', 'created_by','created_at','modified_at','modified_by','deleted_at','deleted_by'];
+    protected $appends  = ['insurance_type_name'];
+
+
+    public function getInsuranceTypeNameAttribute()
+    {
+        $column = 'insurance_type_name_'.app()->getLocale();
+        return $this->$column;
+    }
 }
