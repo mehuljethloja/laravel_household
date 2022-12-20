@@ -32,6 +32,7 @@ Route::group(['middleware' => [\App\Http\Middleware\Localization::class,'jwt.ver
     Route::get('getPlans',[AppController::class,'getPlans']);
     Route::get('getInsuranceType',[AppController::class,'getInsuranceType']);
     Route::get('getTermsConditions',[AppController::class,'getTermsConditions']);
+    Route::get('locateMyRegion',[AppController::class,'locateMyRegion']);
 
     Route::post('getQuotes',[QuoteController::class,'index']);
     Route::post('saveQuote',[QuoteController::class,'save']);

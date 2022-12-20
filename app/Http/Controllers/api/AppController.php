@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\CityRequest;
-use App\Http\Requests\API\InsuranceTypeRequest;
+
+use App\Http\Requests\API\LocateMyRegionRequest;
 use App\Http\Requests\API\PlanRequest;
 use App\Http\Requests\API\TermsConditionRequest;
 use App\Models\City;
 use App\Models\InsuranceType;
 use App\Models\Plan;
 use App\Models\TermAndCondition;
+use GoogleMaps\GoogleMaps;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Exception;
@@ -75,6 +76,23 @@ class AppController extends BaseController
             $response = [
                 'termAndConditions' => $termAndConditions
             ];
+
+            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
+
+        }catch (Exception $e) {
+            return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function locateMyRegion(LocateMyRegionRequest $request)
+    {
+        try{
+
+            $response = \GoogleMaps::load('geocoding')
+                ->setParam (['address' =>'santa cruz'])
+                ->get();
+
+            dd($response);
 
             return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
 
