@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
             [
                 "insurance_type_id"     => 1,
                 "plan_id"               => 1,
+                "region_id"             => 1,
                 "product_name_en"       => "Tembo",
                 "product_name_sw"       => "Tembo SW",
 
@@ -32,8 +33,9 @@ class ProductSeeder extends Seeder
                 "currency"              => "USD",
             ],
             [
-                "insurance_type_id"     => 2,
+                "insurance_type_id"     => 1,
                 "plan_id"               => 1,
+                "region_id"             => 1,
                 "product_name_en"       => "Kifaru",
                 "product_name_sw"       => "Kifaru SW",
 
@@ -41,6 +43,21 @@ class ProductSeeder extends Seeder
                 "vat_percentage"        => "18",
                 "vat_amount"            => "2000",
                 "gross_premium"         => "47000",
+                "building_compensation" => "7000000",
+                "content_compensation"  => "2000000",
+                "currency"              => "USD",
+            ],
+            [
+                "insurance_type_id"     => 2,
+                "plan_id"               => 1,
+                "region_id"             => 2,
+                "product_name_en"       => "Twiga",
+                "product_name_sw"       => "Twiga SW",
+
+                "premium_without_vat"   => "22000",
+                "vat_percentage"        => "18",
+                "vat_amount"            => "1000",
+                "gross_premium"         => "23000",
                 "building_compensation" => "7000000",
                 "content_compensation"  => "2000000",
                 "currency"              => "USD",
