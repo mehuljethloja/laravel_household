@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'key'       => 'AIzaSyDLC4q00-tiAPqi2-4UzKfxsHWsGUEq0jY', // msm google cloud key
+    'key'       => 'AIzaSyBRyIL7sGcc3BuDaeA6iv9XCKVd1iF7_sA', // msm google cloud key
 
     /*
     |--------------------------------------------------------------------------

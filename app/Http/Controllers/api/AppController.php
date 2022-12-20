@@ -89,10 +89,8 @@ class AppController extends BaseController
         try{
 
             $response = \GoogleMaps::load('geocoding')
-                ->setParam (['address' =>'santa cruz'])
-                ->get();
-
-            dd($response);
+                ->setParamByKey('latlng', '40.714224,-73.961452')
+                ->get('results.formatted_address');
 
             return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
 
