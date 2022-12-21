@@ -10,10 +10,6 @@ use App\Http\Controllers\Controller as Controller;
 
 class BaseController extends Controller
 {
-    public function getLocale() {
-        return app()->getLocale();
-    }
-
     /**
      * success response method.
      *
@@ -27,7 +23,6 @@ class BaseController extends Controller
             'message' => $message,
             'data'    => $result,
         ];
-
 
         return response()->json($response);
     }
