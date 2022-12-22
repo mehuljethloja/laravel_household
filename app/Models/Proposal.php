@@ -20,7 +20,7 @@ class Proposal extends BaseModel
         'user_id',
         'plan_id',
         'product_id',
-        'language character',
+        'language',
         'proposal_request',
         'proposal_response',
         'created_by',

@@ -19,6 +19,9 @@ return [
 
     'DATA_RETRIEVED_SUCCESSFULLY'   => 'Data Retrieved Successfully!',
     'OOPS_SOMETHING_WENT_WRONG'     => 'Oops Something Went Wrong!',
-
     'LAT_LONG_VALUE_OUT_OF_SCOPE'     => 'Latitude and Longitude values are out of scope',
+    'QUOTE_SAVED_SUCCEFULLY'    => 'Quote saved successfully',
+    'QUOTE_SAVED_ERROR'    => 'Quote saved error',
+    'PROPOSAL_SAVED_SUCCEFULLY'    => 'Proposal saved successfully',
+    'PROPOSAL_SAVED_ERROR' => 'Proposal saved error'
 ];
