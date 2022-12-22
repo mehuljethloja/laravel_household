@@ -24,29 +24,29 @@ class QuoteController extends BaseController
         try{
             
             $params = [
-                'insurance_type_id' => $request->insuranceTypeId,
-                'plan_id' => $request->planId,
-                'user_id' => $request->userId,
-                'regionId' => $request->regionId,
+                'insurance_type_id' => $request->insurance_type_id,
+                'plan_id' => $request->plan_id,
+                'user_id' => $request->user_id,
+                'region_id' => $request->region_id,
                 'language' => app()->getLocale()
             ];
             $products = Product::getProducts($params);
 
-            $response = ['activityId' => time(),'quoteId' => '','product' => $products];
+            $response = ['activity_id' => time(),'quote_id' => '','product' => $products];
             
             // save quote request and response
             $quoteParams = [
-                'activity_id' => $response['activityId'],
-                'user_id' => $request->userId,
-                'insurance_type_id' => $request->insuranceTypeId,
-                'plan_id' => $request->planId,
+                'activity_id' => $response['activity_id'],
+                'user_id' => $request->user_id,
+                'insurance_type_id' => $request->insurance_type_id,
+                'plan_id' => $request->plan_id,
                 'quote_request' => $params,
                 'quote_response' => $response
             ];
             $quoteModel = Quote::saveQuote($quoteParams);
             
             if($quoteModel){
-                $response['quoteId'] = $quoteModel->quote_id;
+                $response['quote_id'] = $quoteModel->quote_id;
             }
 
             return $this->sendResponse($response,'', Response::HTTP_OK);    

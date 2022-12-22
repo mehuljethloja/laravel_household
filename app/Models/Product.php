@@ -45,7 +45,7 @@ class Product extends BaseModel
     }
 
     public function coverageDetails(){
-        return $this->hasMany(InsuranceCoverage::class,'insurance_type_id','insurance_type_id')->select(['insurance_type_id','coverage_heading_'.app()->getLocale().' as coverageHeading','coverage_data_'.app()->getLocale().' as coverageData']);
+        return $this->hasMany(InsuranceCoverage::class,'insurance_type_id','insurance_type_id')->select(['insurance_type_id','coverage_heading_'.app()->getLocale().' as coverage_heading','coverage_data_'.app()->getLocale().' as coverage_data']);
     }
 
     public static function getProducts($params){

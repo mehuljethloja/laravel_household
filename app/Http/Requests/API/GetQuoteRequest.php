@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class GetQuoteRequest extends FormRequest
+class GetQuoteRequest extends APIFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,10 @@ class GetQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'insuranceTypeId' => 'required',
-            'planId' => 'required',
-            'regionId' => 'required',
-            'userId' => 'required',
+            'insurance_type_id' => 'required',
+            'plan_id' => 'required',
+            'region_id' => 'required',
+            'user_id' => 'required',
         ];
     }
 
