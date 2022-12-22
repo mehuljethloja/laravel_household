@@ -19,4 +19,5 @@ return [
     'DATA_RETRIEVED_SUCCESSFULLY'   => 'Data Retrieved Successfully! SW',
     'OOPS_SOMETHING_WENT_WRONG'     => 'Oops Something Went Wrong! SW',
 
+    'LAT_LONG_VALUE_OUT_OF_SCOPE'     => 'Latitude and Longitude values are out of scope SW',
 ];

@@ -87,12 +87,38 @@ class AppController extends BaseController
     public function locateMyRegion(LocateMyRegionRequest $request)
     {
         try{
+            $response = [];
+            $regions = ['NY', 'Puram'];
 
-            $response = \GoogleMaps::load('geocoding')
-                ->setParamByKey('latlng', '40.714224,-73.961452')
+            $isRegionMatched = false;
+            $regionMatched = false;
+
+            $formatted_address = \GoogleMaps::load('geocoding')
+                ->setParamByKey('latlng', $request->latitude.','.$request->longitude)
                 ->get('results.formatted_address');
 
-            return $this->sendResponse($response,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
+            foreach ($formatted_address['results'] as $address)
+            {
+                foreach ($regions as $region)
+                {
+//                    dump($address['formatted_address'] . ' -- Contains -- ' .$region. ' ==> '.str_contains($address['formatted_address'], $region));
+                    if(str_contains($address['formatted_address'], $region)){
+                        $isRegionMatched = true;
+                        $regionMatched = $region;
+                        break;
+                    }
+                }
+            }
+
+            if($isRegionMatched){
+                $response = [
+                    'region' => $regionMatched
+                ];
+                return $this->sendResponse($response ,__('api.DATA_RETRIEVED_SUCCESSFULLY'), Response::HTTP_OK);
+            }
+            else{
+                return $this->sendError(__('api.LAT_LONG_VALUE_OUT_OF_SCOPE'),'', Response::HTTP_OK);
+            }
 
         }catch (Exception $e) {
             return $this->sendError($e->getMessage(),__('api.OOPS_SOMETHING_WENT_WRONG'), Response::HTTP_INTERNAL_SERVER_ERROR);
