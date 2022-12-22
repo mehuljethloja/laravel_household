@@ -33,4 +33,12 @@ class InsuranceType extends BaseModel
         $column = 'insurance_type_name_'.app()->getLocale();
         return $this->$column;
     }
+
+    // public function product(){
+    //     return $this->belongsTo(Product::class, 'insurance_type_id' , 'insurance_type_id');
+    // }
+
+    public function insuranceCoverage(){
+        return $this->belongsToMany(InsuranceCoverage::class,'insurance_type_id','insurance_type_id');
+    }
 }

@@ -42,4 +42,32 @@ class Quote extends BaseModel
     public function user(){
         return $this->hasOne('App\Models\UserProfile','user_id','user_id');
     }
+
+    public static function saveQuote($params){
+        if($params){
+            $quoteModel = new Quote();
+            if(isset($params['activity_id']))
+                $quoteModel->activity_id = $params['activity_id'];
+            
+            if(isset($params['user_id']))
+                $quoteModel->user_id = $params['user_id'];
+
+            if(isset($params['insurance_type_id']))
+                $quoteModel->insurance_type_id = $params['insurance_type_id'];
+
+            if(isset($params['plan_id']))
+                $quoteModel->plan_id = $params['plan_id'];
+
+            if(isset($params['quote_request']))
+                $quoteModel->quote_request = json_encode($params['quote_request']);
+
+            if(isset($params['quote_response']))
+                $quoteModel->quote_response = json_encode($params['quote_response']); 
+
+            $quoteModel->save();
+            
+            return $quoteModel;
+        }
+        return false;
+    }
 }

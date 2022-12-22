@@ -27,6 +27,7 @@ class Product extends BaseModel
         'building_compensation',
         'content_compensation',
         'currency',
+        'region_id',
         'created_by',
         'created_at',
         'modified_by',
@@ -35,19 +36,28 @@ class Product extends BaseModel
         'deleted_by'
     ];
 
-    protected $appends = ['product_name'];
-
-    public function getProductNameAttribute()
-    {
-        $column = 'product_name_'.app()->getLocale();
-        return $this->$column;
-    }
-
     public function plan(){
         return $this->hasOne('App\Models\Plan','plan_id','plan_id');
     }
 
     public function insuranceType(){
-        return $this->hasOne('App\Models\InsuranceType','insurance_type_id','insurance_type_id');
+        return $this->hasMany(InsuranceType::class,'insurance_type_id','insurance_type_id');
+    }
+
+    public function coverageDetails(){
+        return $this->hasMany(InsuranceCoverage::class,'insurance_type_id','insurance_type_id')->select(['insurance_type_id','coverage_heading_'.app()->getLocale().' as coverage_heading','coverage_data_'.app()->getLocale().' as coverage_data']);
+    }
+
+    public static function getProducts($params){
+        
+        $model = self::select([
+            'product_id','product_name_'.app()->getLocale().' as product_name','product.insurance_type_id','plan_id','premium_without_vat as premium','building_compensation','content_compensation','vat_percentage'
+            ])->with(['coverageDetails']);
+        
+        if(isset($params['insurance_type_id']) && !empty($params['insurance_type_id'])){
+            //$model->where('product.insurance_type_id',$params['insurance_type_id']);
+        }            
+        $model = $model->get();
+        return $model;
     }
 }

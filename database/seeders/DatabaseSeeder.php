@@ -19,12 +19,13 @@ class DatabaseSeeder extends Seeder
             PlanSeeder::class,
             ProductSeeder::class,
             TermConditionSeeder::class,
+            InsuranceCoverage::class
         ]);
 
         // \App\Models\User::factory(10)->create();
-        \App\Models\UserProfile::factory(1)->create();
-        \App\Models\Quote::factory(10)->create();
-
-
+        // \App\Models\City::factory(10)->create();
+        // \App\Models\UserProfile::factory(1)->create();
+        // \App\Models\Quote::factory(10)->create();
+        // \App\Models\InsuranceCoverage::factory(2)->create();
     }
 }

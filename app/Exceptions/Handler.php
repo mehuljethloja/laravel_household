@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
                     $response['message'] = __('api.HTTP_METHOD_NOT_ALLOWED');
                 }else{
                     $response['status'] = Response::HTTP_NOT_FOUND;
-                    $response['message'] = "Exception";
+                    $response['message'] = $e->getMessage();
                 }
                 return response()->json($response);
             }
